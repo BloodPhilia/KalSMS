@@ -103,7 +103,7 @@ public class SMSReceiver extends BroadcastReceiver {
 	}
 
 	private void DeleteSMSFromInbox(Context context, SmsMessage mesg) {
-		Log.d("KALSMS", "try to delete SMS");
+/* 		Log.d("KALSMS", "try to delete SMS");
 		
 		try {
 			Uri uriSms = Uri.parse("content://sms/inbox");
@@ -122,7 +122,7 @@ public class SMSReceiver extends BroadcastReceiver {
 			// makes it difficult to match up perfectly. the SMS might not be in
 			// the inbox yet when this receiver triggers!
 			Log.d("SmsReceiver", "Error deleting sms from inbox: " + ex.getMessage());
-		}
+		} */
 	}
 
 	
