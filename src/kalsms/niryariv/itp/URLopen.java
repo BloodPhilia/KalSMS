@@ -1,4 +1,4 @@
-package kalsms.niryariv.itp;
+package com.fruityjuice.smsgateway;
 //package txtgate.niryariv.itp;
 //
 //import java.io.BufferedInputStream;

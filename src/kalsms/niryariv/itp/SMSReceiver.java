@@ -1,4 +1,4 @@
-package kalsms.niryariv.itp;
+package com.fruityjuice.smsgateway;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

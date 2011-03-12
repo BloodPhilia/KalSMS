@@ -1,6 +1,6 @@
-package kalsms.niryariv.itp;
+package com.fruityjuice.smsgateway;
 
-import kalsms.niryariv.itp.R;
+import com.fruityjuice.smsgateway.R;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
