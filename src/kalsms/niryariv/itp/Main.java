@@ -41,12 +41,12 @@ public class Main extends Activity {
 		}
 		
 		infoText += " are now sent to <b>" + this.targetUrl +"</b> in the following format:";
-		infoText += "<p><tt>GET " + this.targetUrl + "?sender=&lt;phone#&gt;&msg=&lt;message&gt;</tt></p>";
+		infoText += "<p><tt>GET " + this.targetUrl + "?sender=&lt;phone#&gt;&identifier=" + this.identifier + "&msg=&lt;message&gt;</tt></p>";
 		infoText += "If the response body contains text, it will SMSed back to the sender.";
 
 		infoText += "<br /><br /><b>Press Menu to set SMS identifier or target URL.</b>";
 		
-		infoText += "<br /><br /><br />Questions/feedback: niryariv@gmail.com";
+		infoText += "<br /><br /><br />Questions/feedback: niryariv@gmail.com for the main app and bloodphilia@gmail.com for the server-modified version.";
 		
 		TextView info = (TextView) this.findViewById(R.id.info);
         info.setText(Html.fromHtml(infoText));

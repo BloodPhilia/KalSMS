@@ -70,7 +70,7 @@ public class SMSReceiver extends BroadcastReceiver {
 				Log.d("KALSMS", "MSG RCVD:\"" + message + "\" from: " + sender);
 				
 				// send the message to the URL
-				String resp = openURL(sender, message, targetUrl).toString();
+				String resp = openURL(sender, message, targetUrl, identifier).toString();
 				
 				Log.d("KALSMS", "RESP:\"" + resp);
 				
@@ -93,37 +93,12 @@ public class SMSReceiver extends BroadcastReceiver {
 						}
 					}
 				}
-				
-				// delete SMS from inbox, to prevent it from filling up
-				DeleteSMSFromInbox(context, mesg);
 								
 			}
 		}
 
 	}
 
-	private void DeleteSMSFromInbox(Context context, SmsMessage mesg) {
-/* 		Log.d("KALSMS", "try to delete SMS");
-		
-		try {
-			Uri uriSms = Uri.parse("content://sms/inbox");
-			
-			StringBuilder sb = new StringBuilder();
-			sb.append("address='" + mesg.getOriginatingAddress() + "' AND ");
-			sb.append("body='" + mesg.getMessageBody() + "'");
-			Cursor c = context.getContentResolver().query(uriSms, null, sb.toString(), null, null);
-			c.moveToFirst();
-			int thread_id = c.getInt(1);
-			context.getContentResolver().delete(Uri.parse("content://sms/conversations/" + thread_id), null, null);
-			c.close();
-		} catch (Exception ex) {
-			// deletions don't work most of the time since the timing of the
-			// receipt and saving to the inbox
-			// makes it difficult to match up perfectly. the SMS might not be in
-			// the inbox yet when this receiver triggers!
-			Log.d("SmsReceiver", "Error deleting sms from inbox: " + ex.getMessage());
-		} */
-	}
 
 	
 	// from http://github.com/dimagi/rapidandroid 
@@ -146,10 +121,11 @@ public class SMSReceiver extends BroadcastReceiver {
 	}
 	
 
-	public String openURL(String sender, String message, String targetUrl) {
+	public String openURL(String sender, String message, String targetUrl, String identifier) {
 		
         List<NameValuePair> qparams = new ArrayList<NameValuePair>();
         qparams.add(new BasicNameValuePair("sender", sender));
+        qparams.add(new BasicNameValuePair("identifier", identifier));
         qparams.add(new BasicNameValuePair("msg", message));
         String url = targetUrl + "?" + URLEncodedUtils.format(qparams, "UTF-8");
 
